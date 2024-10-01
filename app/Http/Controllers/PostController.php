@@ -12,7 +12,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('user')->latest()->get();
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -20,7 +21,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.edit');
     }
 
     /**
@@ -28,7 +29,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'content' => 'required|max:255',
+        ]);
+
+        $id = auth()->id();
+
+        Post::create([
+            'content' => $request->content,
+            'result_id' => 1,
+            'user_id' => $id,
+        ]);
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -36,7 +49,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('posts.show', compact(post));
     }
 
     /**
@@ -44,7 +57,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact(post));
     }
 
     /**
@@ -52,7 +65,13 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+        'content' => 'required|max:255',
+        ]);
+
+        $tweet->update($request->only('content'));
+
+        return redirect() -> route('posts.show', $post);
     }
 
     /**
@@ -60,6 +79,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+
+        return redirect()->route('posts.index');
     }
 }

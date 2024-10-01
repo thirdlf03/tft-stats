@@ -12,7 +12,7 @@ class BookmarkController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -28,7 +28,18 @@ class BookmarkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'name' => 'required|string|max:255',
+        ]);
+
+        $id = auth()->id();
+
+        Bookmark::create([
+            'name' => $request->name,
+            'user_id' => $id,
+        ]);
+
+        return redirect()->route('results.index')->with('showModal', true);
     }
 
     /**

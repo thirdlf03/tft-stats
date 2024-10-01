@@ -9,7 +9,12 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['content', 'image_url'];
+    protected $fillable = [
+        'user_id',
+        'result_id',
+        'content',
+        'image_url'
+    ];
 
     public function comments()
     {
@@ -24,10 +29,5 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function bookmark_contents()
-    {
-        return $this->belongsToMany(Bookmark::class, 'bookmark_contents', 'post_id', 'bookmark_id');
     }
 }

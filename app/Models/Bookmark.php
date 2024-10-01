@@ -9,7 +9,10 @@ class Bookmark extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name']
+    protected $fillable = [
+        'user_id',
+        'name',
+    ];
 
     public function user()
     {
@@ -18,6 +21,6 @@ class Bookmark extends Model
 
     public function bookmark_contents()
     {
-        return $this->belongsToMany(Bookmark::class, 'bookmark_contents');
+        return $this->belongsToMany(Result::class, 'bookmark_contents', 'result_id', 'bookmark_id');
     }
 }

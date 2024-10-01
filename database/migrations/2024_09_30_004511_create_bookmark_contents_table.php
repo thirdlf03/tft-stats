@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bookmark_id')->constrained('bookmarks')->cascadeOnDelete();
             $table->foreignId('result_id')->constrained('results')->cascadeOnDelete();
-            $table->foreignId('post_id')->constrained('posts')->cascadeOnDelete();
             $table->timestamps();
         });
     }

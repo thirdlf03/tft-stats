@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bookmark;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 class BookmarkContentController extends Controller
@@ -25,9 +27,17 @@ class BookmarkContentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $bookmark)
     {
-        //
+    $result_id = $request->input('result_id');
+    $bookmark_id = $bookmark;
+
+
+    $result = Bookmark::find($result_id);
+
+    $result->bookmark_contents()->attach($bookmark_id);
+
+        return redirect()->route('results.index')->with('showModal', true);
     }
 
     /**
@@ -57,8 +67,9 @@ class BookmarkContentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Bookmark $bookmark, Result $result)
     {
-        //
+        //  $->liked()->detach(auth()->id());
+        //return back();
     }
 }

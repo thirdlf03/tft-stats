@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Result;
+use App\Models\Bookmark;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ResultController extends Controller
@@ -12,7 +14,9 @@ class ResultController extends Controller
      */
     public function index()
     {
-        //
+        $results = Result::with('user')->latest()->get();
+        $bookmarks = Bookmark::get();
+        return view('results.index', compact(['results', 'bookmarks']));
     }
 
     /**
@@ -28,7 +32,13 @@ class ResultController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'data_json' => 'required',
+        ]);
+
+        $request->user()->results()->create($request->only('content'));
+
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -50,9 +60,9 @@ class ResultController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Result $result)
+    public function update(Request $request, User $user)
     {
-        //
+        
     }
 
     /**
