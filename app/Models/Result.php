@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Result extends Model
 {
     use HasFactory;
-    
-    protected $fillable = ['data_json'];
+
+    protected $fillable = ['data_json', 'user_id', 'date'];
 
     public function user()
     {

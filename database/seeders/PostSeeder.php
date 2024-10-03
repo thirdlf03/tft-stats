@@ -16,7 +16,7 @@ class PostSeeder extends Seeder
     {
         Post::create([
             'user_id' => '1',
-            'result_id' => '3',
+            'result_id' => '1',
             'content' => 'test',
             'image_url' => 'hello.world',
         ]);

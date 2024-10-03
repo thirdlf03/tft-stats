@@ -19,6 +19,7 @@ class ResultSeeder extends Seeder
         Result::create([
             'user_id' => 1,
             'data_json' => json_encode($arr),
+            'date' => 1,
         ]);
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->json('data_json');
+            $table->integer('date');
             $table->timestamps();
         });
     }
