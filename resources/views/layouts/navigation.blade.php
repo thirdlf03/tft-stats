@@ -18,11 +18,9 @@
                     <x-nav-link :href="route('results.index')" :active="request()->routeIs('results.index')">
                         {{ __('Result') }}
                     </x-nav-link>
-                    <!--
                     <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
                         {{ __('Post') }}
-                    </x-nav-link>
-                    -->
+                    </x-nav-link>   
                     <x-nav-link :href="route('bookmarks.index')" :active="request()->routeIs('bookmarks.index')">
                         {{ __('Bookmark') }}
                     </x-nav-link>
