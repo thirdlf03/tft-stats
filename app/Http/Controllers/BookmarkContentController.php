@@ -11,9 +11,12 @@ class BookmarkContentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($bookmarkId)
     {
-        //
+        $content = Bookmark::find($bookmarkId);
+        $contents = $content->bookmark_contents;
+
+        return view('bookmarks.contents.index', compact(['contents', 'content']));
     }
 
     /**

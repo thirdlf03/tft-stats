@@ -23,6 +23,6 @@ class Result extends Model
 
     public function bookmark_contents()
     {
-        return $this->belongsToMany(Bookmark::class, 'bookmark_contents', 'result_id', 'bookmark_id', );
+        return $this->belongsToMany(Bookmark::class, 'bookmark_contents', 'result_id', 'bookmark_id');
     }
 }

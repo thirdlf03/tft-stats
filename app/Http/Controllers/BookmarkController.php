@@ -12,7 +12,11 @@ class BookmarkController extends Controller
      */
     public function index()
     {
+        $id = auth()->id();
 
+        $bookmarks = Bookmark::where('user_Id', $id)->get();
+
+        return view('bookmarks.index', compact('bookmarks', ));
     }
 
     /**
@@ -20,7 +24,6 @@ class BookmarkController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
