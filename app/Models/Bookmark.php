@@ -21,6 +21,6 @@ class Bookmark extends Model
 
     public function bookmark_contents()
     {
-        return $this->belongsToMany(Result::class, 'bookmark_contents', 'result_id', 'bookmark_id');
+        return $this->belongsToMany(Result::class, 'bookmark_contents', 'bookmark_id', 'result_id');
     }
 }

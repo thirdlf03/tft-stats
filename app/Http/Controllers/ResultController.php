@@ -30,9 +30,14 @@ class ResultController extends Controller
 
     public function api(Request $request)
     {
-        $gameName = 'thirdlf';
-        $tagLine = 'JP1';
-        $region = 'asia';
+
+        $region = $request->input('region');
+        $name = $request->input('gameId');
+        $parts = explode('#', $name);
+
+        $gameName = $parts[0];
+
+        $tagLine = $parts[1];
 
         $getPuuid = Http::withHeaders([
             "X-Riot-Token" => env('API_KEY'),

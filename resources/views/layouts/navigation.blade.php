@@ -16,10 +16,15 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                     <x-nav-link :href="route('results.index')" :active="request()->routeIs('results.index')">
-                        {{ __('results') }}
+                        {{ __('Result') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('posts.create')" :active="request()->routeIs('posts.create')">
-                        {{ __('posts') }}
+                    <!--
+                    <x-nav-link :href="route('posts.index')" :active="request()->routeIs('posts.index')">
+                        {{ __('Post') }}
+                    </x-nav-link>
+                    -->
+                    <x-nav-link :href="route('bookmarks.index')" :active="request()->routeIs('bookmarks.index')">
+                        {{ __('Bookmark') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -44,9 +49,6 @@
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
-                        <x-dropdown-link :href="route('posts.index')">
-                            {{__('posts')}}
-                        </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">

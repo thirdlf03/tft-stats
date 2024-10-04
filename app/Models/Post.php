@@ -16,11 +16,6 @@ class Post extends Model
         'image_url'
     ];
 
-    public function comments()
-    {
-        return $this->hasMany(Comment::class);
-    }
-
     public function result()
     {
         return $this->belongsTo(Result::class);
