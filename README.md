@@ -18,14 +18,14 @@ https://thirdlf03.com/
 
 ## 使い方
 
-1. Resultタブのユーザー検索で地域とゲーム内id thirdlf#JP1 と入力してユーザ検索するとデータを取得
-デバッグ用 地域 asia ゲーム内id thirdlf#JP1
+1. Resultタブのユーザー検索で地域とゲーム内id thirdlf#JP1 と入力してユーザ検索するとデータを取得  
+デバッグ用 地域 asia ゲーム内id thirdlf#JP1  
 
-*まだ例外処理書いていないため、これ以外だとエラーでます。
-*APIの呼び出し数に制限があります。
-Rate Limits
-20 requests every 1 seconds(s)
-100 requests every 2 minutes(s)
+*まだ例外処理書いていないため、これ以外だとエラーでます。  
+*APIの呼び出し数に制限があります。  
+Rate Limits  
+20 requests every 1 seconds(s)  
+100 requests every 2 minutes(s)  
 
 2. ブックマーク追加ボタンを押すと、モーダルが開きブックマーク追加および作成の画面が開く。
     ブックマークがない場合は、新規作成からブックマークを作成。
@@ -33,8 +33,8 @@ Rate Limits
 
 3. Bookmarkタブで確認したいブックマークの詳細の表示
 
-4. postタブから他のユーザーの投稿確認と投稿作成が可能。
-*例外処理書いていないため、Resultを取得していない状態で作成しようとするとエラーでます。
+4. postタブから他のユーザーの投稿確認と投稿作成が可能。  
+*例外処理書いていないため、Resultを取得していない状態で作成しようとするとエラーでます。  
 
 ## 工夫した点
 DBの構造
