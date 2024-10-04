@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Result;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -21,7 +22,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.edit');
+        $id = auth()->id();
+
+        $results = Result::where('user_id', $id)->get();
+
+        return view('posts.create', compact('results'));
     }
 
     /**
@@ -29,15 +34,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        'content' => 'required|max:255',
-        ]);
-
         $id = auth()->id();
 
         Post::create([
-            'content' => $request->content,
-            'result_id' => 1,
+            'post_content' => $request->postContent,
+            'result_id' => $request->selectedResult,
             'user_id' => $id,
         ]);
 
