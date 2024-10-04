@@ -92,7 +92,7 @@
                       syntax: true,
                       toolbar: '#toolbar-container',
                   },
-                  placeholder: 'Compose an epic...',
+                  placeholder: '内容を入力',
                   theme: 'snow',
               });
 
