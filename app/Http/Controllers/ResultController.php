@@ -42,6 +42,9 @@ class ResultController extends Controller
         $getPuuid = Http::withHeaders([
             "X-Riot-Token" => env('API_KEY'),
         ])->get("https://{$region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{$gameName}/{$tagLine}");
+        if($getPuuid->ok() !== true){
+            return redirect()->route('results.index')->with('flash_message', 'エラーが発生しました');
+        }
 
         $userData = json_decode($getPuuid->body(), true);
         $puuid = $userData['puuid'];

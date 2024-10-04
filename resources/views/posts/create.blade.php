@@ -72,12 +72,14 @@
 
                 <select name="selectedResult" id="resultSelect" class="mt-2 block w-full border-gray-300 rounded-md">
                     <option value="">選択してください</option>
-                    @foreach ($results as $result)
-                        @php
-                            $data = json_decode($result->data_json);
-                        @endphp
-                        <option value="{{ $result->id }}">日付: {{ date('Y-m-d H:i:s', $data->date / 1000) }} 順位:{{ $data->placement }}</option>
-                    @endforeach
+                    @if (count($results) > 0)
+                        @foreach ($results as $result)
+                            @php
+                                $data = json_decode($result->data_json);
+                            @endphp
+                            <option value="{{ $result->id }}">日付: {{ date('Y-m-d H:i:s', $data->date / 1000) }} 順位:{{ $data->placement }}</option>
+                        @endforeach
+                    @endif
                 </select>
               <div class="flex justify-end mt-4">
                   <button type="submit" id="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
