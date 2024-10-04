@@ -7,6 +7,11 @@
     <style>
     [x-cloak] { display: none !important; }
     </style>
+    @if (session('flash_message'))
+        <script>
+            alert('{{ session('flash_message') }}')
+        </script>
+    @endif
     <div class="pt-4 py-2 max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="bg-white shadow-sm sm:rounded-lg">
         <p class="ml-5 py-2 font-bold flex justify-center">ユーザー検索</p>
@@ -39,6 +44,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                 @foreach ($results as $result)
+                @if ($result->user_id == auth()->id())
                 <div class="mb-4 p-4 bg-gray-100 dark:bg-gray-700 rounded-lg">
                     <div class="flex items-center justify-between">
                         @php
@@ -108,6 +114,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
                 @endforeach
 
                 </div>
