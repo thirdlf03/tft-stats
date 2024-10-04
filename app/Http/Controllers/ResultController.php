@@ -37,7 +37,11 @@ class ResultController extends Controller
 
         $gameName = $parts[0];
 
-        $tagLine = $parts[1];
+        $tagLine = isset($parts[1]) ? $parts[1] : null;
+
+        if($tagLine == null){
+            return redirect()->route('results.index')->with('flash_message', 'エラーが発生しました');
+        }
 
         $getPuuid = Http::withHeaders([
             "X-Riot-Token" => env('API_KEY'),
