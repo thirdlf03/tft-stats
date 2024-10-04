@@ -8,6 +8,10 @@ use App\Http\Controllers\BookmarkContentController;
 
 use Illuminate\Support\Facades\Route;
 
+if (env('APP_ENV') == 'production') {
+    \Illuminate\Support\Facades\URL::forceScheme('https');
+}
+
 Route::get('/', function () {
     return view('welcome');
 });
