@@ -14,12 +14,12 @@
         class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
         <div x-on:click.away="showModal = false" class="bg-white dark:bg-gray-800 p-6 rounded-lg w-1/3">
             <div class="flex justify-between items-center mb-4">
-                <h2 class="text-lg font-bold">お知らせ</h2>
+                    <h2 class="text-lg font-bold">お知らせ</h2>
                 <button x-on:click="showModal = false" class="text-2xl cursor-pointer">×</button>
             </div>
             <p x-text="message" class="text-gray-800 dark:text-gray-300"></p>
             <button x-on:click="showModal = false"
-                class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
+                    class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
                 OK
             </button>
         </div>

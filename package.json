@@ -6,7 +6,7 @@
         "build": "vite build",
         "prepare": "husky",
         "pint": "./vendor/bin/pint",
-        "prettier": "npx prettier --write resources/**/*.blade.php .",
+        "prettier": "npx prettier --write ./resources/**/*.blade.php",
         "lint-and-format": "npm run pint && npm run prettier"
     },
     "devDependencies": {
