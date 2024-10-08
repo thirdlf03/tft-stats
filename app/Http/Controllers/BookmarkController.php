@@ -16,15 +16,13 @@ class BookmarkController extends Controller
 
         $bookmarks = Bookmark::where('user_Id', $id)->get();
 
-        return view('bookmarks.index', compact('bookmarks', ));
+        return view('bookmarks.index', compact('bookmarks'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-    }
+    public function create() {}
 
     /**
      * Store a newly created resource in storage.
@@ -32,7 +30,7 @@ class BookmarkController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-        'name' => 'required|string|max:255',
+            'name' => 'required|string|max:255',
         ]);
 
         $id = auth()->id();

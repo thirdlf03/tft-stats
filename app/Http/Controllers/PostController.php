@@ -14,6 +14,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with('user')->latest()->get();
+
         return view('posts.index', compact('posts'));
     }
 
@@ -67,12 +68,12 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $request->validate([
-        'content' => 'required|max:255',
+            'content' => 'required|max:255',
         ]);
 
         $tweet->update($request->only('content'));
 
-        return redirect() -> route('posts.show', $post);
+        return redirect()->route('posts.show', $post);
     }
 
     /**
