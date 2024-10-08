@@ -1,5 +1,8 @@
 {
-    "plugins": ["@shufo/prettier-plugin-blade"],
+    "plugins": [
+        "prettier-plugin-tailwindcss",
+        "@shufo/prettier-plugin-blade"
+    ],
     "overrides": [
         {
             "files": ["*.blade.php"],
