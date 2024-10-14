@@ -29,11 +29,9 @@ jobs:
         php-version: '8.2'
 
     - name: Install Dependencies
-      working-directory: ./src
       if: steps.cache.outputs.cache-hit != 'true'
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: PHPStan Analyse
-      working-directory: ./src
       run: ./vendor/bin/phpstan analyse ./phpstan.neon
 
