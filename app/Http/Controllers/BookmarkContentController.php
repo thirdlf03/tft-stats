@@ -32,14 +32,13 @@ class BookmarkContentController extends Controller
      */
     public function store(Request $request, $bookmark)
     {
-    $result_id = $request->input('result_id');
-    $bookmark_id = $bookmark;
+        $result_id = $request->input('result_id');
+        $bookmark_id = $bookmark;
 
+        $result = Result::find($result_id);
+        $result->bookmark_contents()->attach($bookmark_id);
 
-    $result = Result::find($result_id);
-    $result->bookmark_contents()->attach($bookmark_id);
-
-    return redirect()->route('results.index')->with('showModal', true);
+        return redirect()->route('results.index')->with('showModal', true);
     }
 
     /**
@@ -71,13 +70,12 @@ class BookmarkContentController extends Controller
      */
     public function destroy(Request $request, $bookmark)
     {
-    $result_id = $request->input('result_id');
-    $bookmark_id = $bookmark;
+        $result_id = $request->input('result_id');
+        $bookmark_id = $bookmark;
 
+        $result = Result::find($result_id);
+        $result->bookmark_contents()->detach($bookmark_id);
 
-    $result = Result::find($result_id);
-    $result->bookmark_contents()->detach($bookmark_id);
-
-    return redirect()->route('results.index')->with('showModal', true);
+        return redirect()->route('results.index')->with('showModal', true);
     }
 }

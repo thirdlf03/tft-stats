@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Result;
+use Illuminate\Database\Seeder;
 
 class ResultSeeder extends Seeder
 {
@@ -13,8 +12,8 @@ class ResultSeeder extends Seeder
      */
     public function run(): void
     {
-        $arr = ['apple'=>'ringo',
-                'orange'=>'midori'];
+        $arr = ['apple' => 'ringo',
+            'orange' => 'midori'];
 
         Result::create([
             'user_id' => 1,
