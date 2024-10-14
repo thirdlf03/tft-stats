@@ -1,0 +1,17 @@
+import: 
+  - recipe/laravel.php
+
+config:
+  repository: 'git@github.com:thirdlf03/tft-stats.git'
+
+hosts:
+  52.197.88.129:
+    remote_user: deployer
+    deploy_path: '~/html'
+
+tasks:
+  build:
+    - run: uptime  
+
+after:
+  deploy:failed: deploy:unlock
