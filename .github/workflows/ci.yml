@@ -35,5 +35,5 @@ jobs:
 
     - name: PHPStan Analyse
       working-directory: ./src
-      run: ./vendor/bin/phpstan analyse ./
+      run: ./vendor/bin/phpstan analyse ./phpstan.neon
 
