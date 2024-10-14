@@ -37,6 +37,6 @@ jobs:
 
          echo "${{ secrets.GIT_PRIVATE_KEY }}" > private_key
          chmod 600 private_key
-         ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER_NAME }}@${{ secrets.EC2_HOST_NAME }} -i private_key "cd /var/www/laravel/tft-stats && git pull origin main"
+         ssh -o StrictHostKeyChecking=no ${{ secrets.USER_NAME }}@${{ secrets.HOST_NAME }} -i private_key "cd /var/www/laravel/tft-stats && git pull origin main"
 
          aws ec2 revoke-security-group-ingress --group-id ${{ secrets.EC2_SECURITY_GROUP_ID }} --protocol tcp --port 22 --cidr ${{ steps.ip.outputs.ipv4 }}/32
